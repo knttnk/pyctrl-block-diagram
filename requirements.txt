@@ -1,0 +1,24 @@
+# Dev dependencies for pyctrl-block-diagram
+
+# conda create -n pyctrl-block-diagram python=3.13 -y
+# conda activate pyctrl-block-diagram
+# python -m pip install -U pip
+# conda install -c conda-forge control slycot -y
+# python -m pip install -r requirements.txt -U
+
+# Linters and formatters
+autopep8
+mypy
+
+# Testing
+ipykernel
+jupyter
+notebook
+pytest
+build
+
+# Packaging
+hatch
+
+# To delete the environment and clean up, run:
+# conda remove -n pyctrl-block-diagram --all

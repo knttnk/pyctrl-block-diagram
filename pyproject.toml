@@ -1,0 +1,59 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pyctrl-block-diagram"
+dynamic = ["version"]
+description = 'Test development of a Python package for creating block diagrams of `InterconnectedSystem`s using Python Control Systems Library.'
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+keywords = []
+authors = [{ name = "knttnk" }]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+]
+dependencies = ["control>=0.10.0"]
+
+[project.urls]
+Documentation = "https://github.com/knttnk/pyctrl-block-diagram"
+Issues = "https://github.com/knttnk/pyctrl-block-diagram/issues"
+Source = "https://github.com/knttnk/pyctrl-block-diagram"
+
+[tool.hatch.version]
+path = "src/pyctrl_block_diagram/__about__.py"
+
+[tool.hatch.envs.types]
+extra-dependencies = [
+  "autopep8",
+  "mypy",
+  "ipykernel",
+  "jupyter",
+  "notebook",
+  "pytest",
+  "build",
+]
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:src/pyctrl_block_diagram tests}"
+
+[tool.coverage.run]
+source_pkgs = ["pyctrl_block_diagram", "tests"]
+branch = true
+parallel = true
+omit = ["src/pyctrl_block_diagram/__about__.py"]
+
+[tool.coverage.paths]
+pyctrl_block_diagram = [
+  "src/pyctrl_block_diagram",
+  "*/pyctrl-block-diagram/src/pyctrl_block_diagram",
+]
+tests = ["tests", "*/pyctrl-block-diagram/tests"]
+
+[tool.coverage.report]
+exclude_lines = ["no cov", "if __name__ == .__main__.:", "if TYPE_CHECKING:"]
