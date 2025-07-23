@@ -7,13 +7,16 @@ Test development of a Python package for creating block diagrams of `Interconnec
 ## Installation
 
 ```console
-pip install pyctrl-block-diagram
+# conda install -c conda-forge control slycot -y
+# pip uninstall pyctrl-block-diagram -y  # for reinstallation
+pip install git+https://github.com/knttnk/pyctrl-block-diagram.git
 ```
 
 ## Usage
 
 ```python
 import pyctrl_block_diagram as pbd
+import control
 
 P = control.ss(1, 2, 3, 0, name="P", inputs='u', outputs='y')
 K = control.ss(0, 0, 0, -0.5, name="K", inputs='e', outputs='u')
@@ -24,7 +27,7 @@ T = control.interconnect([P, K, sumblk], inplist='r', outlist='y')
 pbd.show_block_diagram(T)
 ```
 
-Then this block diagram will be displayed in your browser:
+The following block diagram will be displayed in your browser:
 
 ```mermaid
 ---
