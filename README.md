@@ -63,6 +63,8 @@ classDef inout fill:#7ca;
 class input,output inout
 ```
 
+See also [test cases (tests/test_browser.py)](tests/test_browser.py) for more examples.
+
 ## License
 
 `pyctrl-block-diagram` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
